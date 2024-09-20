@@ -32,4 +32,9 @@ export default class AuthenticatingConcept {
   }
 
   // TODO: Write "authentication" code that makes sure the username exists
+  asserUsernameExists(username: string){
+    if(this.users.find((user) => user.username === username) === undefined){
+      throw new NotAllowedError("Username does not exists. Register first!");
+    }
+  }
 }
